@@ -9,7 +9,7 @@ io.on('connection', (client) => {
   client.join('general');
 
   client.on('message:toServer', (data) => {
-    io.emit('message:toClient', data)
+    client.broadcast.emit('message:toClient', data)
   });
 
   client.on('message:toGeneral', (data) => {
